@@ -1,0 +1,44 @@
+[
+  {
+    "signature_id": "FLT-010-HIGH-SPREAD",
+    "event_class": "fault",
+    "attack_subtype": null,
+    "observable_conditions": ["amplitude_spread >= 0.255"],
+    "discriminative_rationale": "Physical faults cause larger dispersion among the six phase‑current channels, yielding a spread above the highest attack 75th‑percentile."
+  },
+  {
+    "signature_id": "ATK-010-LOW-SPREAD",
+    "event_class": "attack",
+    "attack_subtype": "FDI",
+    "observable_conditions": ["amplitude_spread <= 0.240"],
+    "discriminative_rationale": "Coordinated false‑data injection often keeps the reported amplitudes artificially consistent, producing a spread lower than any genuine fault."
+  },
+  {
+    "signature_id": "ATK-011-HOT-PAIR-COUNT",
+    "event_class": "attack",
+    "attack_subtype": "FDI",
+    "observable_conditions": ["hot_pair_count >= 1"],
+    "discriminative_rationale": "A genuine internal fault usually appears on a single phase; multiple hot pairs indicate injected differential currents across phases."
+  },
+  {
+    "signature_id": "FLT-011-LOW-DRR-C",
+    "event_class": "fault",
+    "attack_subtype": null,
+    "observable_conditions": ["diff_restraint_ratio.C <= 0.575"],
+    "discriminative_rationale": "During an internal fault the C‑pair differential stays well below the restraint current, a region never reached by attacks in the hard‑event set."
+  },
+  {
+    "signature_id": "ATK-012-SECOND-HARM-A",
+    "event_class": "attack",
+    "attack_subtype": "FDI",
+    "observable_conditions": ["second_harmonic_ratio.A >= 0.455"],
+    "discriminative_rationale": "Injected waveforms often contain excessive second‑harmonic content on phase A, exceeding the maximum observed in real faults."
+  },
+  {
+    "signature_id": "FLT-012-FIFTH-HARM-B",
+    "event_class": "fault",
+    "attack_subtype": null,
+    "observable_conditions": ["fifth_harmonic_ratio.B >= 0.399"],
+    "discriminative_rationale": "Authentic fault transients generate noticeable fifth‑harmonic energy on phase B, a level absent in the attack data."
+  }
+]

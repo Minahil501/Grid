@@ -1,0 +1,65 @@
+[
+  {
+    "signature_id": "FLT-005-SINGLE-PAIR-ACTIVATION",
+    "event_class": "fault",
+    "attack_subtype": null,
+    "observable_conditions": [
+      "hot_pair_count == 1",
+      "amplitude_spread <= 0.71719"
+    ],
+    "discriminative_rationale": "A genuine single-phase fault raises the differential on exactly one pair while the remaining pairs keep balanced, proportionate amplitudes -- the localisation a real physical fault produces.",
+    "provenance": "training-derived"
+  },
+  {
+    "signature_id": "FLT-006-PHYSICAL-TRANSIENT-CONTENT",
+    "event_class": "fault",
+    "attack_subtype": null,
+    "observable_conditions": [
+      "max_roughness <= 0.228818",
+      "any.diff_restraint_ratio >= 1.00226"
+    ],
+    "discriminative_rationale": "Genuine fault currents remain sample-to-sample continuous because circuit inductance opposes instantaneous change; moderate roughness alongside a real differential indicates a physical transient rather than substituted samples.",
+    "provenance": "training-derived"
+  },
+  {
+    "signature_id": "ATK-001-DERIVATIVE-DISCONTINUITY",
+    "event_class": "attack",
+    "attack_subtype": "FDI",
+    "observable_conditions": [
+      "max_roughness >= 0.55"
+    ],
+    "discriminative_rationale": "Inductance prevents instantaneous current change, so elevated normalised sample-to-sample variation indicates splice points where injected values replaced measured ones. Measured: attack windows show roughly twice the roughness of fault windows.",
+    "provenance": "training-derived"
+  },
+  {
+    "signature_id": "ATK-006-CROSS-CHANNEL-AMPLITUDE-INCONSISTENCY",
+    "event_class": "attack",
+    "attack_subtype": "FDI",
+    "observable_conditions": [
+      "amplitude_spread >= 0.45"
+    ],
+    "discriminative_rationale": "A physical transformer event preserves proportionate amplitude relationships across all six measured channels. An adversary altering a subset of reported values breaks those relationships, producing amplitude dispersion no single physical event explains. Strongest single discriminator measured on this dataset.",
+    "provenance": "training-derived"
+  },
+  {
+    "signature_id": "ATK-007-MULTI-PAIR-ACTIVATION",
+    "event_class": "attack",
+    "attack_subtype": "FDI",
+    "observable_conditions": [
+      "hot_pair_count >= 3"
+    ],
+    "discriminative_rationale": "Simultaneous elevated differential on two or more pairs is inconsistent with the localised single-phase faults this relay observes, and indicates coordinated manipulation of multiple measurement channels.",
+    "provenance": "training-derived"
+  },
+  {
+    "signature_id": "ATK-004-PAIR-AMPLITUDE-MISMATCH",
+    "event_class": "attack",
+    "attack_subtype": "FDI",
+    "observable_conditions": [
+      "any.pair_amplitude_ratio <= 0.129954",
+      "any.diff_restraint_ratio >= 0.8"
+    ],
+    "discriminative_rationale": "Input and output currents of one differential pair retain comparable magnitudes through a genuine event. A large mismatch within a pair suggests one side's reported values were altered independently of the other.",
+    "provenance": "training-derived"
+  }
+]

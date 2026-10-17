@@ -1,0 +1,180 @@
+{
+  "baseline": {
+    "coverage": 0.9289636639794369,
+    "selective_acc": 0.989812602188404,
+    "attack_recall": 0.7587939698492462,
+    "attack_recall_ci": [
+      0.7228909779657238,
+      0.7913876605306785
+    ],
+    "false_alarms": 0,
+    "n_attack": 597
+  },
+  "models": {
+    "qwen/qwen3.8-27b": {
+      "n_proposed": 9,
+      "n_accepted": 2,
+      "validate": {
+        "coverage": 1.0,
+        "selective_acc": 0.9928729991821474,
+        "attack_recall": 0.897822445561139,
+        "attack_recall_ci": [
+          0.8709270855049837,
+          0.9196306921189359
+        ],
+        "false_alarms": 0,
+        "n_attack": 597
+      },
+      "signatures": [
+        {
+          "rationale_conflicts": [],
+          "signature": "ATK-008-HIGH-CONTINUITY-LOW-ROUGHNESS",
+          "propose_precision": 1.0,
+          "validate_precision": 1.0,
+          "propose_lift": 1.0,
+          "validate_lift": 1.0,
+          "validate_fires": 214
+        },
+        {
+          "rationale_conflicts": [],
+          "signature": "FLT-007-HIGH-SECOND-HARMONIC-LOW-RESIDUAL",
+          "propose_precision": 0.9835341365461847,
+          "validate_precision": 0.9841740850642928,
+          "propose_lift": 0.7640260497830581,
+          "validate_lift": 0.7731088677810425,
+          "validate_fires": 8088
+        }
+      ],
+      "api_failed": false,
+      "ran": true
+    }
+  },
+  "audit": [
+    {
+      "round": 1,
+      "model": "qwen/qwen3.8-27b",
+      "signature": "ATK-008-HIGH-CONTINUITY-LOW-ROUGHNESS",
+      "conditions": [
+        "any.discontinuity >= 0.4",
+        "max_roughness <= 0.24"
+      ],
+      "verdict": "ACCEPT",
+      "detail": "fires=272 prec=1.000 lift=1.000",
+      "precision": 1.0,
+      "lift": 1.0,
+      "fires": 272
+    },
+    {
+      "round": 1,
+      "model": "qwen/qwen3.8-27b",
+      "signature": "FLT-007-HIGH-SECOND-HARMONIC-LOW-RESIDUAL",
+      "conditions": [
+        "any.second_harmonic_ratio >= 0.9",
+        "any.waveform_residual <= 0.28"
+      ],
+      "verdict": "ACCEPT",
+      "detail": "fires=8611 prec=0.970 lift=0.576",
+      "precision": 0.970386714667286,
+      "lift": 0.5756090205374089,
+      "fires": 8611
+    },
+    {
+      "round": 1,
+      "model": "qwen/qwen3.8-27b",
+      "signature": "ATK-009-LOW-FIFTH-HARMONIC-HIGH-SPREAD",
+      "conditions": [
+        "any.fifth_harmonic_ratio <= 0.15",
+        "amplitude_spread >= 0.2"
+      ],
+      "verdict": "REJECT: precision 0.088 < 0.8",
+      "detail": "fires=22117 prec=0.088 lift=0.019",
+      "precision": 0.08771533209748157,
+      "lift": 0.019282524021021,
+      "fires": 22117
+    },
+    {
+      "round": 2,
+      "model": "qwen/qwen3.8-27b",
+      "signature": "ATK-010-PAIR-B-AMPLITUDE-MISMATCH",
+      "conditions": [
+        "pair_amplitude_ratio.B <= 0.686",
+        "diff_restraint_ratio.B >= 1.238"
+      ],
+      "verdict": "REJECT: precision 0.285 < 0.8",
+      "detail": "fires=5992 prec=0.285 lift=0.231",
+      "precision": 0.2847129506008011,
+      "lift": 0.23105743813487903,
+      "fires": 5992
+    },
+    {
+      "round": 2,
+      "model": "qwen/qwen3.8-27b",
+      "signature": "ATK-011-PAIR-C-AMPLITUDE-MISMATCH",
+      "conditions": [
+        "pair_amplitude_ratio.C <= 0.724",
+        "diff_restraint_ratio.C >= 1.223"
+      ],
+      "verdict": "REJECT: precision 0.120 < 0.8",
+      "detail": "fires=10781 prec=0.120 lift=0.054",
+      "precision": 0.12011872739078007,
+      "lift": 0.054116580936892034,
+      "fires": 10781
+    },
+    {
+      "round": 2,
+      "model": "qwen/qwen3.8-27b",
+      "signature": "FLT-008-HIGH-SECOND-HARMONIC-PAIR-B",
+      "conditions": [
+        "second_harmonic_ratio.B >= 1.260",
+        "second_harmonic_ratio.A >= 0.296"
+      ],
+      "verdict": "REJECT: lift 0.258 < 0.5 (no better than base rate)",
+      "detail": "fires=4826 prec=0.948 lift=0.258",
+      "precision": 0.9481972648155823,
+      "lift": 0.2576097762624908,
+      "fires": 4826
+    },
+    {
+      "round": 3,
+      "model": "qwen/qwen3.8-27b",
+      "signature": "ATK-012-PAIR-C-DISCONTINUITY",
+      "conditions": [
+        "discontinuity.C >= 0.233"
+      ],
+      "verdict": "REJECT: precision 0.438 < 0.8",
+      "detail": "fires=2102 prec=0.438 lift=0.396",
+      "precision": 0.43815413891531874,
+      "lift": 0.39600864274189174,
+      "fires": 2102
+    },
+    {
+      "round": 3,
+      "model": "qwen/qwen3.8-27b",
+      "signature": "ATK-013-PAIR-B-DISCONTINUITY",
+      "conditions": [
+        "discontinuity.B >= 0.248"
+      ],
+      "verdict": "REJECT: precision 0.308 < 0.8",
+      "detail": "fires=3752 prec=0.308 lift=0.256",
+      "precision": 0.30756929637526653,
+      "lift": 0.25562829691032407,
+      "fires": 3752
+    },
+    {
+      "round": 3,
+      "model": "qwen/qwen3.8-27b",
+      "signature": "FLT-009-PAIR-B-HARMONIC-SIGNATURE",
+      "conditions": [
+        "second_harmonic_ratio.B >= 0.940",
+        "fifth_harmonic_ratio.B >= 0.400"
+      ],
+      "verdict": "REJECT: lift 0.315 < 0.5 (no better than base rate)",
+      "detail": "fires=4689 prec=0.952 lift=0.315",
+      "precision": 0.9522286201748774,
+      "lift": 0.3153835365957628,
+      "fires": 4689
+    }
+  ],
+  "comparison_valid": true,
+  "models_excluded": []
+}

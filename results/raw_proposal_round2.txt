@@ -1,0 +1,44 @@
+[
+  {
+    "signature_id": "FLT-014-LOW-SPREAD",
+    "event_class": "fault",
+    "attack_subtype": null,
+    "observable_conditions": ["amplitude_spread >= 0.255"],
+    "discriminative_rationale": "Physical faults cause larger inter‑phase amplitude dispersion, while injected data tends to keep all channels artificially consistent."
+  },
+  {
+    "signature_id": "FLT-015-HOT-PAIR-ZERO",
+    "event_class": "fault",
+    "attack_subtype": null,
+    "observable_conditions": ["hot_pair_count == 0"],
+    "discriminative_rationale": "A genuine internal fault appears as a single hot pair; events with no hot pair are unlikely to be attack‑driven manipulations."
+  },
+  {
+    "signature_id": "FLT-016-ALL-LOW-DRR",
+    "event_class": "fault",
+    "attack_subtype": null,
+    "observable_conditions": ["all.diff_restraint_ratio <= 0.7"],
+    "discriminative_rationale": "In real differential events the differential current stays below the restraint current for all three phase pairs, whereas attacks often inflate the ratio."
+  },
+  {
+    "signature_id": "ATK-013-HIGH-DISCONTINUITY-C",
+    "event_class": "attack",
+    "attack_subtype": "FDI",
+    "observable_conditions": ["discontinuity.C >= 0.2"],
+    "discriminative_rationale": "Injected data creates abrupt sample‑to‑sample jumps in phase C that are not observed in physical transients."
+  },
+  {
+    "signature_id": "ATK-014-HIGH-WFRES-B",
+    "event_class": "attack",
+    "attack_subtype": "FDI",
+    "observable_conditions": ["waveform_residual.B >= 0.3"],
+    "discriminative_rationale": "Cyber‑altered waveforms deviate markedly from the ideal sinusoid in phase B, raising the residual metric."
+  },
+  {
+    "signature_id": "ATK-015-MULTI-CRITERIA",
+    "event_class": "attack",
+    "attack_subtype": "FDI",
+    "observable_conditions": ["hot_pair_count >= 1", "amplitude_spread <= 0.24"],
+    "discriminative_rationale": "Attacks often manipulate multiple phase pairs while keeping the overall amplitude spread low, a combination rarely produced by genuine faults."
+  }
+]

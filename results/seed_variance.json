@@ -1,0 +1,99 @@
+{
+  "baseline": {
+    "coverage": 0.9289636639794369,
+    "selective_acc": 0.989812602188404,
+    "attack_recall": 0.7587939698492462,
+    "attack_recall_ci": [
+      0.7228909779657238,
+      0.7913876605306785
+    ],
+    "false_alarms": 0,
+    "n_attack": 597
+  },
+  "model": "openai/gpt-oss-120b",
+  "repeats": [
+    {
+      "repeat": 1,
+      "failed": false,
+      "n_proposed": 18,
+      "n_accepted": 2,
+      "accept_rate": 0.1111111111111111,
+      "validate": {
+        "coverage": 0.9311835494800794,
+        "selective_acc": 0.9898368883312422,
+        "attack_recall": 0.7906197654941374,
+        "attack_recall_ci": [
+          0.7561753375750329,
+          0.8213479231312831
+        ],
+        "false_alarms": 0,
+        "n_attack": 597
+      },
+      "signatures": [
+        "FLT-010-HIGH-AMPLITUDE-SPREAD",
+        "FLT-013-HOT-PAIR-ZERO"
+      ]
+    },
+    {
+      "repeat": 2,
+      "failed": false,
+      "n_proposed": 18,
+      "n_accepted": 2,
+      "accept_rate": 0.1111111111111111,
+      "validate": {
+        "coverage": 1.0,
+        "selective_acc": 0.9904194415235424,
+        "attack_recall": 0.8626465661641541,
+        "attack_recall_ci": [
+          0.8327063766698439,
+          0.887949450090487
+        ],
+        "false_alarms": 0,
+        "n_attack": 597
+      },
+      "signatures": [
+        "FLT-011-DRR-LOW",
+        "ATK-015-DISCONTINUITY-HIGH-A"
+      ]
+    },
+    {
+      "repeat": 3,
+      "failed": false,
+      "n_proposed": 18,
+      "n_accepted": 7,
+      "accept_rate": 0.3888888888888889,
+      "validate": {
+        "coverage": 1.0,
+        "selective_acc": 0.9903026054445613,
+        "attack_recall": 0.8609715242881072,
+        "attack_recall_ci": [
+          0.8309030069696451,
+          0.8864241554638481
+        ],
+        "false_alarms": 0,
+        "n_attack": 597
+      },
+      "signatures": [
+        "FLT-010-LOW-DRC-C",
+        "FLT-012-LOW-DISC-C",
+        "FLT-013-ZERO-HOT-HIGH-SPREAD",
+        "FLT-014-LOW-DRC-A",
+        "FLT-015-HIGH-2H-B",
+        "ATK-021-HOT-PAIR-DRC-A",
+        "FLT-021-LOW-DRC-A"
+      ]
+    }
+  ],
+  "predicate_counts": {
+    "amplitude_spread >= 0.108458 AND hot_pair_count == 1": 2,
+    "hot_pair_count == 1": 1,
+    "any.diff_restraint_ratio <= 0.923881": 1,
+    "discontinuity.A >= 0.35": 1,
+    "diff_restraint_ratio.C <= 1.92991 AND hot_pair_count == 1": 1,
+    "discontinuity.C <= 0.234153 AND hot_pair_count == 1": 1,
+    "diff_restraint_ratio.A <= 1.18483 AND hot_pair_count == 1": 1,
+    "hot_pair_count == 1 AND second_harmonic_ratio.B >= 0.393218": 1,
+    "diff_restraint_ratio.A >= 0.95 AND hot_pair_count >= 0": 1,
+    "diff_restraint_ratio.A <= 1.18483": 1
+  }
+}

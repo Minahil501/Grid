@@ -1,0 +1,44 @@
+[
+  {
+    "signature_id": "FLT-017-HIGH-SECOND-HARMONIC-B",
+    "event_class": "fault",
+    "attack_subtype": null,
+    "observable_conditions": ["second_harmonic_ratio.B >= 1.4"],
+    "discriminative_rationale": "A very high second‑harmonic component in the differential current is characteristic of physical inrush or internal faults, while injected data rarely produce such strong harmonic content."
+  },
+  {
+    "signature_id": "ATK-018-HIGH-DRR-B",
+    "event_class": "attack",
+    "attack_subtype": "FDI",
+    "observable_conditions": ["diff_restraint_ratio.B >= 1.1"],
+    "discriminative_rationale": "An elevated differential‑to‑restraint ratio on phase B indicates inconsistent reporting between input and output, a hallmark of false‑data‑injection attacks."
+  },
+  {
+    "signature_id": "FLT-019-LOW-AMP-SPREAD",
+    "event_class": "fault",
+    "attack_subtype": null,
+    "observable_conditions": ["amplitude_spread >= 0.26"],
+    "discriminative_rationale": "Genuine internal faults cause a larger dispersion of phase amplitudes, whereas coordinated cyber attacks keep the spread relatively low."
+  },
+  {
+    "signature_id": "ATK-020-HIGH-SECOND-HARMONIC-A",
+    "event_class": "attack",
+    "attack_subtype": "FDI",
+    "observable_conditions": ["second_harmonic_ratio.A >= 0.5"],
+    "discriminative_rationale": "Attacks often inject a pronounced second‑harmonic component on phase A, exceeding levels seen in normal fault transients."
+  },
+  {
+    "signature_id": "FLT-021-HIGH-FIFTH-HARMONIC-B",
+    "event_class": "fault",
+    "attack_subtype": null,
+    "observable_conditions": ["fifth_harmonic_ratio.B >= 0.4"],
+    "discriminative_rationale": "Real fault currents contain significant fifth‑order harmonic energy, while injected data typically lack such high‑frequency content."
+  },
+  {
+    "signature_id": "ATK-022-HIGH-DISCONTINUITY-A",
+    "event_class": "attack",
+    "attack_subtype": "FDI",
+    "observable_conditions": ["discontinuity.A >= 0.35"],
+    "discriminative_rationale": "Abrupt sample‑to‑sample jumps in phase A are unlikely in physical phenomena but are common when adversaries tamper with measurement streams."
+  }
+]

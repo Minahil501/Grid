@@ -1,0 +1,165 @@
+[
+  {
+    "round": 1,
+    "signature": "FLT-010-HIGH-SPREAD",
+    "conditions": [
+      "amplitude_spread >= 0.255"
+    ],
+    "verdict": "REJECT: precision 0.780 < 0.8",
+    "detail": "fires=10093 prec=0.780 lift=-2.151 rec=0.198"
+  },
+  {
+    "round": 1,
+    "signature": "ATK-010-LOW-SPREAD",
+    "conditions": [
+      "amplitude_spread <= 0.240"
+    ],
+    "verdict": "REJECT: precision 0.027 < 0.8",
+    "detail": "fires=23759 prec=0.027 lift=-0.046 rec=0.216"
+  },
+  {
+    "round": 1,
+    "signature": "ATK-011-HOT-PAIR-COUNT",
+    "conditions": [
+      "hot_pair_count >= 1"
+    ],
+    "verdict": "REJECT: precision 0.074 < 0.8",
+    "detail": "fires=39983 prec=0.074 lift=0.005 rec=0.992"
+  },
+  {
+    "round": 1,
+    "signature": "FLT-011-LOW-DRR-C",
+    "conditions": [
+      "diff_restraint_ratio.C <= 0.575"
+    ],
+    "verdict": "ACCEPT",
+    "detail": "fires=6937 prec=0.989 lift=0.837 rec=0.172"
+  },
+  {
+    "round": 1,
+    "signature": "ATK-012-SECOND-HARM-A",
+    "conditions": [
+      "second_harmonic_ratio.A >= 0.455"
+    ],
+    "verdict": "REJECT: precision 0.102 < 0.8",
+    "detail": "fires=16347 prec=0.102 lift=0.034 rec=0.557"
+  },
+  {
+    "round": 1,
+    "signature": "FLT-012-FIFTH-HARM-B",
+    "conditions": [
+      "fifth_harmonic_ratio.B >= 0.399"
+    ],
+    "verdict": "REJECT: lift -0.136 < 0.5 (no better than base rate)",
+    "detail": "fires=6070 prec=0.921 lift=-0.136 rec=0.140"
+  },
+  {
+    "round": 2,
+    "signature": "FLT-014-LOW-SPREAD",
+    "conditions": [
+      "amplitude_spread >= 0.255"
+    ],
+    "verdict": "REJECT: precision 0.780 < 0.8",
+    "detail": "fires=10093 prec=0.780 lift=-2.151 rec=0.198"
+  },
+  {
+    "round": 2,
+    "signature": "FLT-015-HOT-PAIR-ZERO",
+    "conditions": [
+      "hot_pair_count == 0"
+    ],
+    "verdict": "ACCEPT",
+    "detail": "fires=2813 prec=0.991 lift=0.873 rec=0.070"
+  },
+  {
+    "round": 2,
+    "signature": "FLT-016-ALL-LOW-DRR",
+    "conditions": [
+      "all.diff_restraint_ratio <= 0.7"
+    ],
+    "verdict": "REJECT: fired only 0 times (< 30)",
+    "detail": "fires=0 prec=0.000 lift=0.000 rec=0.000"
+  },
+  {
+    "round": 2,
+    "signature": "ATK-013-HIGH-DISCONTINUITY-C",
+    "conditions": [
+      "discontinuity.C >= 0.2"
+    ],
+    "verdict": "REJECT: precision 0.243 < 0.8",
+    "detail": "fires=4924 prec=0.243 lift=0.187 rec=0.401"
+  },
+  {
+    "round": 2,
+    "signature": "ATK-014-HIGH-WFRES-B",
+    "conditions": [
+      "waveform_residual.B >= 0.3"
+    ],
+    "verdict": "REJECT: precision 0.087 < 0.8",
+    "detail": "fires=16826 prec=0.087 lift=0.019 rec=0.491"
+  },
+  {
+    "round": 2,
+    "signature": "ATK-015-MULTI-CRITERIA",
+    "conditions": [
+      "hot_pair_count >= 1",
+      "amplitude_spread <= 0.24"
+    ],
+    "verdict": "REJECT: precision 0.027 < 0.8",
+    "detail": "fires=23384 prec=0.027 lift=-0.046 rec=0.211"
+  },
+  {
+    "round": 3,
+    "signature": "FLT-017-HIGH-SECOND-HARMONIC-B",
+    "conditions": [
+      "second_harmonic_ratio.B >= 1.4"
+    ],
+    "verdict": "REJECT: lift 0.207 < 0.5 (no better than base rate)",
+    "detail": "fires=5259 prec=0.945 lift=0.207 rec=0.125"
+  },
+  {
+    "round": 3,
+    "signature": "ATK-018-HIGH-DRR-B",
+    "conditions": [
+      "diff_restraint_ratio.B >= 1.1"
+    ],
+    "verdict": "REJECT: precision 0.124 < 0.8",
+    "detail": "fires=22091 prec=0.124 lift=0.058 rec=0.919"
+  },
+  {
+    "round": 3,
+    "signature": "FLT-019-LOW-AMP-SPREAD",
+    "conditions": [
+      "amplitude_spread >= 0.26"
+    ],
+    "verdict": "REJECT: precision 0.750 < 0.8",
+    "detail": "fires=8785 prec=0.750 lift=-2.589 rec=0.165"
+  },
+  {
+    "round": 3,
+    "signature": "ATK-020-HIGH-SECOND-HARMONIC-A",
+    "conditions": [
+      "second_harmonic_ratio.A >= 0.5"
+    ],
+    "verdict": "REJECT: precision 0.123 < 0.8",
+    "detail": "fires=12768 prec=0.123 lift=0.057 rec=0.525"
+  },
+  {
+    "round": 3,
+    "signature": "FLT-021-HIGH-FIFTH-HARMONIC-B",
+    "conditions": [
+      "fifth_harmonic_ratio.B >= 0.4"
+    ],
+    "verdict": "REJECT: lift -0.135 < 0.5 (no better than base rate)",
+    "detail": "fires=6035 prec=0.921 lift=-0.135 rec=0.140"
+  },
+  {
+    "round": 3,
+    "signature": "ATK-022-HIGH-DISCONTINUITY-A",
+    "conditions": [
+      "discontinuity.A >= 0.35"
+    ],
+    "verdict": "ACCEPT",
+    "detail": "fires=1675 prec=1.000 lift=1.000 rec=0.561"
+  }
+]

@@ -1,0 +1,39 @@
+{
+  "cycle_ms": 20.0,
+  "n_signatures": 9,
+  "descriptor": {
+    "median_ms": 0.9597500029485673,
+    "mean_ms": 1.1065053004713263,
+    "p95_ms": 1.9494000007398427,
+    "max_ms": 56.6742000519298,
+    "n": 2000
+  },
+  "classify": {
+    "median_ms": 0.05370000144466758,
+    "mean_ms": 0.07186579963308759,
+    "p95_ms": 0.14949997421354055,
+    "max_ms": 1.1693999986164272,
+    "n": 2000
+  },
+  "retrieval": {
+    "median_ms": 0.14245003694668412,
+    "mean_ms": 0.16969840077217668,
+    "p95_ms": 0.2877999795600772,
+    "max_ms": 0.8721000049263239,
+    "n": 500
+  },
+  "end_to_end": {
+    "median_ms": 1.0386499925516546,
+    "mean_ms": 1.1589413494220935,
+    "p95_ms": 1.914899970870465,
+    "max_ms": 5.439599975943565,
+    "n": 2000
+  },
+  "environment": {
+    "python": "3.13.14",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "processor": "Intel64 Family 6 Model 126 Stepping 5, GenuineIntel",
+    "numpy": "2.5.2"
+  },
+  "sentence": "On Windows with Python 3.13.14, the deployed path requires a median of 1.039 ms per event (1.915 ms at the 95th percentile), of which 0.960 ms is descriptor extraction and 0.054 ms is signature evaluation over 9 signatures. At 50 Hz this is 0.052 AC cycles."
+}
